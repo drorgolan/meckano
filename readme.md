@@ -1,0 +1,41 @@
+> php artisan install:api
+
+./composer.json has been updated
+.
+.
+.
+> Illuminate\Foundation\ComposerScripts::postAutoloadDump
+> @php artisan package:discover --ansi
+
+INFO Discovering packages.
+
+laravel/sail .............................................. DONE
+laravel/sanctum .............................................. DONE
+laravel/tinker .............................................. DONE
+nesbot/carbon .............................................. DONE
+nunomaduro/collision .............................................. DONE
+nunomaduro/termwind .............................................. DONE
+
+79 packages you are using are looking for funding.
+> @php artisan vendor:publish --tag=laravel-assets --ansi --force
+
+INFO No publishable resources for tag [laravel-assets].
+
+No security vulnerability advisories found
+ERROR API routes file already exists.
+
+One new database migration has been published. Would you like to run all pending database migrations? (yes/no) [yes]:
+> no
+
+INFO API scaffolding installed. Please add the [Laravel\Sanctum\HasApiTokens] trait to your User model.
+
+> **php artisan** route:list
+
+**GET|HEAD** api/admin/customers ......................................... CustomerController@index  
+**POST** api/admin/customers ............................................. CustomerController@store  
+**GET|HEAD** api/admin/customers/{id} .................................... CustomerController@show  
+**PUT** api/admin/customers/{id} ......................................... CustomerController@update  
+**DELETE** api/admin/customers/{id} ...................................... CustomerController@destroy  
+**GET|HEAD** api/admin/user .........................................................................  
+**GET|HEAD** sanctum/csrf-cookie ......................................... sanctum.csrf-cookie › Laravel\Sanctum ›
+CsrfCookieController@show  
