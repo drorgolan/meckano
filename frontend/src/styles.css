@@ -1,0 +1,157 @@
+/* General Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background: #1e3a5f; /* Consistent background color */
+    margin: 0;
+
+    height: 100vh; /* Full viewport height */
+
+}
+
+.header {
+    background: #1e3a5f;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.logo-box {
+    background: #fff;
+    padding: 5px;
+}
+
+/* Container for Form */
+.form-container {
+    margin-top: 60px; /* Space for the fixed header */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    flex: 1; /* Allow form container to take available space */
+}
+
+/* Form Styling */
+.form {
+    background: #0b1b33;
+    padding: 20px;
+    border-radius: 5px;
+    color: #fff;
+    max-width: 500px; /* Optional: Limit form width */
+    width: 100%; /* Ensure form takes full width within container */
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.input-group label {
+    margin-right: 10px;
+    color: #fff;
+    width: 120px; /* Adjust width as needed */
+}
+
+input {
+    margin: 10px 0;
+    padding: 10px;
+    width: 96%;
+    border-radius: 5px; /* Rounded corners for inputs and buttons */
+}
+
+input {
+    border: 1px solid #ddd; /* Light border for input fields */
+}
+
+button {
+    border: none;
+    background: #007bff; /* Primary button color */
+    color: #fff;
+    cursor: pointer;
+    margin: 10px 0;
+    padding: 10px;
+    width: 104%;
+    border-radius: 5px; /* Rounded corners for inputs and buttons */
+}
+
+button:hover {
+    background: #0056b3; /* Darker button color on hover */
+}
+
+h2 {
+    color: #fff;
+}
+
+.register-link {
+    color: #fff;
+}
+
+.customer-table {
+    margin: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.login-page, .register-page, .home {
+    padding: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+    color: #fff;
+}
+
+h1 {
+    text-align: center;
+    color: #ffffff;
+}
+
+svg:not(:root).svg-inline--fa, svg:not(:host).svg-inline--fa {
+    overflow: visible;
+    box-sizing: content-box;
+    color: white;
+}
+
+.register-link {
+    margin-top: 10px;
+    text-align: center; /* Center the link */
+}
+
+.click-here {
+    color: #007bff;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.click-here:hover {
+    color: #0056b3; /* Darker color on hover */
+}
+
+.auth-icons {
+    float: right;
+    margin: 18px 64px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+label {
+    margin: 10px 0;
+    padding: 10px;
+    width: 96%;
+    border-radius: 5px;
+    color: white;
+}
