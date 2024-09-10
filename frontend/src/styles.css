@@ -30,14 +30,36 @@ body {
     flex: 1; /* Allow form container to take available space */
 }
 
-/* Form Styling */
-.form {
-    background: #0b1b33;
+
+form > h2 {
+    display: flex;
+
     padding: 20px;
     border-radius: 5px;
     color: #fff;
-    max-width: 500px; /* Optional: Limit form width */
-    width: 100%; /* Ensure form takes full width within container */
+    max-width: 500px;
+    width: 100%;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-content: space-around;
+    align-items: center;
+
+}
+
+/* Form Styling */
+.form {
+    display: flex;
+    padding: 20px;
+    border-radius: 5px;
+    color: #fff;
+    max-width: 500px;
+    width: 100%;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    align-items: stretch;
 }
 
 .input-group {
@@ -70,7 +92,7 @@ button {
     cursor: pointer;
     margin: 10px 0;
     padding: 10px;
-    width: 104%;
+    width: 100%;
     border-radius: 5px; /* Rounded corners for inputs and buttons */
 }
 
@@ -154,4 +176,8 @@ label {
     width: 96%;
     border-radius: 5px;
     color: white;
+}
+
+img.logo {
+    margin: 1.1% 2%;
 }

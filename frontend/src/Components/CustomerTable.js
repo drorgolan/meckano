@@ -11,7 +11,7 @@ const CustomerTable = ({ token }) => {
                 const response = await axios.get(`http://localhost:8000/api/customers?page=${page}`, {
                     headers: { Authorization: `Bearer ${token}` },
                 });
-                setCustomers(response.data.data);
+                setCustomers(response.data);
             } catch (error) {
                 console.error('Error fetching customers', error);
             }

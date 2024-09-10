@@ -6,7 +6,7 @@ import React from 'react';
 import LoginForm from '../Components/LoginForm';
 import {useNavigate} from 'react-router-dom';
 
-const Login = ({onLogin}) => {
+const Login = ({setMessage,onLogin}) => {
     const navigate = useNavigate();
 
     const handleLogin = (token) => {
@@ -16,7 +16,7 @@ const Login = ({onLogin}) => {
 
     return (
         <div className="login-page">
-            <LoginForm onLogin={handleLogin}/>
+            <LoginForm setMessage={setMessage} onLogin={handleLogin} />
         </div>
     );
 };
