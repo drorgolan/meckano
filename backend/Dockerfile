@@ -1,7 +1,5 @@
-# Use the official PHP image with FPM and version 8.0
-# fpm : service to excelerate the service requests and divide between php workload and simple html files
+# Use the official PHP image with FPM
 FROM php:8.2-fpm
-
 
 # Install system dependencies and PHP extensions
 RUN apt-get update && apt-get install -y \
@@ -21,21 +19,27 @@ RUN apt-get update && apt-get install -y \
     && pecl install xdebug \
     && docker-php-ext-enable xdebug
 
+# Xdebug configuration
+COPY ./xdebug.ini /usr/local/etc/php/conf.d/
+
 # Install Composer globally
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-
 
 WORKDIR /app/backend
 COPY . .
 
 EXPOSE 8000
 
-# Default command to run PHP-FPM
-CMD ["php-fpm"]
 
-#build DATABASE
-CMD ["php", "artisan", "migrate"]
+# Copy the entrypoint script
+COPY entrypoint.sh /usr/local/bin/
+
+# Make the entrypoint script executable
+RUN chmod +x /usr/local/bin/entrypoint.sh
+ 
+# Expose port 8000
+EXPOSE 8000
 
 
-# The command to serve the Laravel application
-CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
+# Set the entrypoint script as the default command
+ENTRYPOINT ["entrypoint.sh"]

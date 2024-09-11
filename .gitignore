@@ -1,0 +1,56 @@
+# Ignore .env file
+.env
+.env.*.local
+
+# Ignore node_modules and vendor directories
+/node_modules
+/vendor
+
+# Ignore compiled class files
+/storage/framework/*
+/storage/logs/*
+/bootstrap/cache/
+
+# Ignore Laravel specific files
+/public/hot
+/public/storage
+/storage/*.key
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+
+# Ignore IDE specific files (PhpStorm)
+.idea/
+.idea/**/*
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+.idea/**/deployment.xml
+.idea/**/render.xml
+.idea/**/webServers.xml
+.idea/**/dataSources/
+.idea/**/dataSources.ids
+.idea/**/dataSources.local.xml
+.idea/**/sqldialects.xml
+.idea/**/dynamic.xml
+.idea/**/dataSources.xml
+.idea/**/dataSources.xml.*
+.idea/**/sqlDataSources.xml
+.idea/**/go.xml
+.idea/**/gradle.xml
+.idea/**/dataSources.namespaces.xml
+.idea/**/dictionaries
+.idea/**/tasks
+
+# Ignore Mac specific files
+.DS_Store
+
+# Ignore lock files (OS generated)
+Thumbs.db
+desktop.ini
+
+# Ignore PHPStorm specific files
+*.iml
+*.ipr
+*.iws
