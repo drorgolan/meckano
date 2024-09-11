@@ -1,49 +1,95 @@
-import React, { useState, useEffect } from 'react';
+import React, {useEffect, useState} from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 
-const CustomerTable = ({ token }) => {
+const CustomerTable = ({token}) => {
     const [customers, setCustomers] = useState([]);
-    const [page, setPage] = useState(1);
+    const [currentPage, setCurrentPage] = useState(1); // Tracks the current page number
+    const [totalPages, setTotalPages] = useState(1); // Tracks the total number of pages
 
     useEffect(() => {
-        const fetchCustomers = async () => {
+        const fetchCustomers = async (page) => {
             try {
                 const response = await axios.get(`http://localhost:8000/api/customers?page=${page}`, {
-                    headers: { Authorization: `Bearer ${token}` },
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
                 });
-                setCustomers(response.data);
+
+                // Logging response to confirm data structure
+                console.log('API Response:', response.data);
+
+                // Set customers data and update pagination state based on the actual response structure
+                setCustomers(response.data.data); // Assuming `data` holds the array of customers
+                setCurrentPage(response.data.current_page); // Assuming `current_page` indicates the current page
+                setTotalPages(response.data.last_page); // Assuming `last_page` indicates the total number of pages
             } catch (error) {
-                console.error('Error fetching customers', error);
+                console.error('Failed to fetch customers:', error);
             }
         };
-        fetchCustomers();
-    }, [page, token]);
+
+        fetchCustomers(currentPage);
+    }, [token, currentPage]);
+
+    // Handlers for pagination buttons
+    const handleNextPage = () => {
+        if (currentPage < totalPages) {
+            console.log(`Moving to next page: ${currentPage + 1}`);
+            setCurrentPage((prevPage) => prevPage + 1);
+        }
+    };
+
+    const handlePrevPage = () => {
+        if (currentPage > 1) {
+            console.log(`Moving to previous page: ${currentPage - 1}`);
+            setCurrentPage((prevPage) => prevPage - 1);
+        }
+    };
 
     return (
-        <div className="customer-table">
-            <h2>Customers</h2>
+        <div>
+            <h2>Customer List</h2>
             <table>
                 <thead>
                 <tr>
+                    <th>ID</th>
                     <th>Name</th>
                     <th>Email</th>
-                    <th>Phone</th>
+                    <th>Address</th>
+                    {/* Add other columns as needed */}
                 </tr>
                 </thead>
                 <tbody>
                 {customers.map((customer) => (
                     <tr key={customer.id}>
+                        <td>{customer.id}</td>
                         <td>{customer.name}</td>
                         <td>{customer.email}</td>
-                        <td>{customer.phone}</td>
+                        <td>{customer.address}</td>
+                        {/* Add other data fields as needed */}
                     </tr>
                 ))}
                 </tbody>
             </table>
-            <button onClick={() => setPage((prev) => prev - 1)} disabled={page === 1}>Previous</button>
-            <button onClick={() => setPage((prev) => prev + 1)}>Next</button>
+
+            {/* Pagination Controls */}
+            <div className="Pagination">
+                <button onClick={handlePrevPage} disabled={currentPage === 1}>
+                    Previous
+                </button>
+                <span>
+          Page {currentPage} of {totalPages}
+        </span>
+                <button onClick={handleNextPage} disabled={currentPage === totalPages}>
+                    Next
+                </button>
+            </div>
         </div>
     );
+};
+
+CustomerTable.propTypes = {
+    token: PropTypes.string.isRequired,
 };
 
 export default CustomerTable;

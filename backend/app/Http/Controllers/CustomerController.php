@@ -10,7 +10,7 @@ class CustomerController
 
     public function index()
     {
-        return response()->json(Customer::all());
+        return response()->json(Customer::paginate(10));
     }
 
     public function store(Request $request)
