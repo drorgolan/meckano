@@ -1,11 +1,13 @@
 import React, {useState} from 'react';
 import CustomerTable from '../Components/CustomerTable';
 import DeleteCustomer from '../Components/DeleteCustomer';
-import ChangeCustomerDetails from '../Components/CahngeCustomersDetails'; // Corrected typo
+import ChangeCustomerDetails from '../Components/ChangeCustomersDetails'; // Corrected typo
 import SearchCustomer from '../Components/SearchCustomer';
 import {Sidebar, Menu, MenuItem} from 'react-pro-sidebar';
 import '../styles.css';
 import AddCustomer from "../Components/AddCustomer"; // Ensure you have styles for Sidebar if needed
+import {faUserPlus, faUserEdit, faSearch, faUserAltSlash, faTable} from '@fortawesome/free-solid-svg-icons';
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 const Home = ({token}) => {
     const [isExpanded, setIsExpanded] = useState(true);
@@ -45,19 +47,20 @@ const Home = ({token}) => {
                         {isExpanded ? 'X' : '+'}
                     </MenuItem>
                     <MenuItem onClick={() => setCustomerComponent('AddCustomer')}>
-                        Add a customer
+                        <div className="menu-prop"><FontAwesomeIcon icon={faUserPlus}/> <p>Add a customer</p></div>
                     </MenuItem>
                     <MenuItem onClick={() => setCustomerComponent('CustomerTable')}>
-                        Show all customers
+                        <div className="menu-prop"><FontAwesomeIcon icon={faTable}/> <p>Show all customers</p></div>
                     </MenuItem>
                     <MenuItem onClick={() => setCustomerComponent('DeleteCustomer')}>
-                        Delete a customer
+                        <div className="menu-prop"><FontAwesomeIcon icon={faUserAltSlash}/><p> Delete a customer</p>
+                        </div>
                     </MenuItem>
                     <MenuItem onClick={() => setCustomerComponent('ChangeCustomerDetails')}>
-                        Change customer's details
+                        <div className="menu-prop"><FontAwesomeIcon icon={faUserEdit}/><p>Edit customer</p></div>
                     </MenuItem>
                     <MenuItem onClick={() => setCustomerComponent('SearchCustomer')}>
-                        Search for a customer
+                        <div className="menu-prop"><FontAwesomeIcon icon={faSearch}/><p>Search for a customer</p></div>
                     </MenuItem>
                 </Menu>
             </Sidebar>

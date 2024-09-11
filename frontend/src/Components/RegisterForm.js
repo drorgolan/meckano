@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import {useNavigate} from 'react-router-dom';
+import {toast, ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const RegisterForm = () => {
     const [formData, setFormData] = useState({
@@ -20,14 +22,20 @@ const RegisterForm = () => {
         e.preventDefault();
         try {
             await axios.post('http://localhost:8000/api/register', formData);
-            alert('Registration successful!');
+            toast.success('Registration successful!');
+            setTimeout(() => {
+                navigate('/login');
+            }, 2000);
+
         } catch (error) {
-            console.error('Registration failed', error);
+            debugger;
+            toast.error(`Registration failed:${error.response.data.message}`);
         }
     };
 
     return (
         <>
+            <ToastContainer/>
             <form onSubmit={handleSubmit} className="form">
                 <h2>Register</h2>
                 <div>

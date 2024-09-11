@@ -2,12 +2,18 @@ import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 
-const CustomerTable = ({token}) => {
+const CustomerTable = ({token, data}) => {
     const [customers, setCustomers] = useState([]);
     const [currentPage, setCurrentPage] = useState(1); // Tracks the current page number
     const [totalPages, setTotalPages] = useState(1); // Tracks the total number of pages
 
     useEffect(() => {
+
+        if (data !== undefined) {
+            setCustomers(data)
+            return;
+        }
+
         const fetchCustomers = async (page) => {
             try {
                 const response = await axios.get(`http://localhost:8000/api/customers?page=${page}`, {
@@ -29,7 +35,7 @@ const CustomerTable = ({token}) => {
         };
 
         fetchCustomers(currentPage);
-    }, [token, currentPage]);
+    }, [token, currentPage,data]);
 
     // Handlers for pagination buttons
     const handleNextPage = () => {

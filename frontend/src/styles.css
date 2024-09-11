@@ -281,3 +281,70 @@ img.logo {
 .delete-customer > button {
     width: 10%;
 }
+
+.customer-details {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: stretch;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.customer-details > button {
+    width: 10%;
+}
+
+.ps-menu-button:hover {
+    background-color: #f3f3f333 !important;
+}
+
+aside.ps-sidebar-root.css-1wvake5 {
+    height: 90vh;
+}
+
+
+div.Cards {
+    max-height: 500px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-width: 100%;
+    display: block;
+
+}
+
+.card {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Add some padding inside the card container */
+.container {
+    padding: 10px 10px;
+    background: #41a6ff47;
+    margin: 6px;
+}
+
+.menu-prop {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: stretch;
+    align-items: center;
+}
+
+.menu-prop > p {
+    margin-left: 24px;
+}
+
+.Toastify__toast-body {
+    min-width: 39%;
+}
