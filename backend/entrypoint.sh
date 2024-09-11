@@ -12,7 +12,10 @@ php-fpm &
 # done
 
 # Run database migrations
-php artisan migrate --force
+php artisan migrate --force &
+rm xdebug.ini &
+# Test the server functionality/customer functionality also check user auth and JWT bearer
+php artisan test
 
 # Start the Laravel server
 exec php artisan serve --host=0.0.0.0 --port=8000
