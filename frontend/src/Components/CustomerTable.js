@@ -62,6 +62,7 @@ const CustomerTable = ({token, data}) => {
                     <th>Name</th>
                     <th>Email</th>
                     <th>Address</th>
+                    <th>Phone number</th>
                     {/* Add other columns as needed */}
                 </tr>
                 </thead>
@@ -72,6 +73,7 @@ const CustomerTable = ({token, data}) => {
                         <td>{customer.name}</td>
                         <td>{customer.email}</td>
                         <td>{customer.address}</td>
+                        <td>{customer.phone}</td>
                         {/* Add other data fields as needed */}
                     </tr>
                 ))}

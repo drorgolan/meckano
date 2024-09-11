@@ -99,6 +99,7 @@ class CustomerController
         $customers = Customer::where('name', 'like', '%' . $sanitizedQuery . '%')
             ->orWhere('email', 'like', '%' . $sanitizedQuery . '%')
             ->orWhere('address', 'like', '%' . $sanitizedQuery . '%')
+            ->orWhere('phone', 'like', '%' . $sanitizedQuery . '%')
             ->get();
 
         // Return the search results as JSON

@@ -29,7 +29,11 @@ const RegisterForm = () => {
 
         } catch (error) {
             debugger;
-            toast.error(`Registration failed:${error.response.data.message}`);
+            if (error.response) {
+                toast.error(`Registration failed:${error.response.data.message}`);
+            } else {
+                toast.error(`Registration failed:${error.message}`);
+            }
         }
     };
 

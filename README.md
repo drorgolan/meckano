@@ -136,15 +136,57 @@
 [PHPStorm]
 Configure Xdebug with Docker by setting up the server and remote debugging settings.
 
-10) Security Practices
-11) Input Validation: Implement server-side validation to prevent SQL injection and XSS attacks.
-12) Authentication: Use JWT tokens for secure API access.
-13) Sanitization: Ensure data is sanitized when entering and leaving the system.
-14) Docker Support
+### 10) **_Security Practices_** : used server side validation and XSS sanitization
+
+### 11) Input Validation: Implement server-side validation to prevent SQL injection and XSS attacks.
+
+### Validation example
+
+---
+
+> $validatedData = $request->validate([
+>
+>'name' => 'nullable|string|max:255',
+>
+> 'email' => 'nullable|email|unique:customers,email,' . $id,
+>
+> 'phone' => 'nullable|string|max:20',
+>
+>'address' => 'nullable|string|max:20',
+>
+]);
+
+### 12) Authentication: Use JWT tokens for secure API access.
+
+    used the laravel built in Bearer token 
+
+### 13) Sanitization: Ensure data is sanitized when entering and leaving the system.
+
+### sanitization example
+---
+> private function sanitizeCustomerData(array $data): array
+>
+> {
+>
+> // Sanitize each field
+>
+> if (!empty($data['name']))
+>
+> $data['name'] = htmlspecialchars($data['name'], ENT_QUOTES, 'UTF-8');
+>
+> .
+>
+> .
+>
+> .
+>
+> }
+
+### 14) Docker Support
 
 > > PS C:\Projects\PHP\Meckano\meckano> docker-compose down
 
-time="2024-09-11T19:22:49+03:00" level=warning msg="C:
+    time="2024-09-11T19:22:49+03:00" level=warning msg="C:
 
     \\Projects\\PHP\\Meckano\\meckano\\docker-compose.yml: `version` is obsolete"
 
@@ -178,9 +220,13 @@ is obsolete"
 
 ✔ Container meckano-frontend-1 Created 0.1s
 
-Attaching to backend-1, dbMeckano-1, frontend-1, phpmyadmin_container
+    Attaching to 
+    backend-1, 
+    dbMeckano-1,
+    frontend-1,
+    phpmyadmin_container
+    dbMeckano-1 | 2024-09-11T16:26:53.269026Z
 
-dbMeckano-1 | 2024-09-11T16:26:53.269026Z
 --------------------------
 
 used docker-compose dockefiles and entry.sh to build the images:
@@ -267,27 +313,36 @@ run in separate containers.
 
 ![img.png](img.png)
 
-15 )
+### 15 )**_Troubleshooting_**
 
-Troubleshooting
 Route Not Found: Ensure routes are defined correctly in routes/web.php or routes/api.php.
 Database Connection Issues: Check that environment variables match the Docker service names.
 Xdebug Not Working: Ensure the correct configuration in your php.ini and IDE settings.
 
-16) Contributing
-    Fork the repository.
-    Create a new feature branch.
-    Commit your changes.
-    Push to the branch.
-    Open a pull request.
-17) License
+### 16) **_Tests_**
+
+    Server test using the laravel FEATURE tests directory
+
+    ![img_6.png](img_6.png)
+
+### 17) **_Contributing_**
+
+> Fork the repository.
+>
+>    Create a new feature branch.
+>
+>    Commit your changes.
+>
+>    Push to the branch.
+>
+>    Open a pull request.
+
+### 18) **_License_**
+
     This project is licensed under the MIT License.
 
-Contact
-For any questions or suggestions, please contact Dror Golan at drorgolan76@gmail.com.
+### 19) **_Contact_**
 
-# **comments**
+    For any questions or suggestions, please contact Dror Golan at drorgolan76@gmail.com.
 
-## TEST - backend/frontend
 
-#### not included not fully completed
